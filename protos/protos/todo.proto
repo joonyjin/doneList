@@ -1,0 +1,46 @@
+syntax = "proto3"; //define version of proto 
+
+//method to show in client
+service TodoService {
+    //reqeust gettodo by id and returns todo message
+    rpc createTodoList (TodoList) returns (TodoList);
+
+    //as if passing void but rpc cannot send void
+    rpc getAllTodoLists (Empty) returns (TodoLists);
+
+    rpc getAllTodoListLogs (Empty) returns (TodoLists);
+
+    rpc getTopThreeList (Empty) returns (TodoLists);
+
+    rpc getTopCostList (Empty) returns (TodoList);
+
+    rpc getTopTimeList (Empty) returns (TodoList);
+
+    rpc getTodolist (TodoList) returns (TodoList);
+
+    rpc editTodolist (TodoList) returns (TodoList);
+
+    rpc deleteTodolist (TodoList) returns (Empty);
+
+    rpc addTodolistCount (TodoList) returns (TodoList);
+
+    //rpc getItemsByCategory (Category) returns (AllItemsOfCategory);
+}
+
+message Empty {}
+
+//'id': 1, 'title': '유투브 보기', 'count': 1, 'cost': 0, 'time': 60
+message TodoList {
+    int32 id = 1;
+    string title = 2;
+    int32 count = 3;
+    int32 cost = 4;
+    int32 time = 5;
+    optional string action = 6;
+
+}
+
+message TodoLists {
+    repeated TodoList todolists = 1;
+}
+
