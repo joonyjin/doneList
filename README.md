@@ -64,6 +64,7 @@ Full-Stack-Programming Project
 
     flutter pub get
 
+    cd client
     flutter run -d window //chrome, edge
     
     
